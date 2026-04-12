@@ -62,6 +62,7 @@ palette_rect := raylib.Rectangle {
 main :: proc() {
 
 	editorState := editor_state_init()
+	//defer delete(editorState.grid)
 
 	selected_color: raylib.Color = {0, 0, 0, 255}
 
@@ -73,6 +74,7 @@ main :: proc() {
 		mouse_pos := raylib.GetMousePosition()
 
 		raylib.BeginDrawing()
+		defer raylib.EndDrawing()
 		raylib.ClearBackground(raylib.Color{194, 194, 194, 255})
 
 		for x in 0 ..< GRID_WIDTH {
@@ -125,8 +127,5 @@ main :: proc() {
 				selected_color = palette_colors[color_index]
 			}
 		}
-
-
-		raylib.EndDrawing()
 	}
 }
