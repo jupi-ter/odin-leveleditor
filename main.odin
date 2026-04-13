@@ -1,7 +1,8 @@
 package editor
 
+import "core:fmt"
+import "core:strings"
 import "vendor:raylib"
-
 Cell :: struct {
 	color: raylib.Color,
 }
@@ -59,10 +60,36 @@ palette_rect := raylib.Rectangle {
 	f32(PALETTE_CELL * PALETTE_COLS),
 }
 
+Button :: struct {
+	bounds:   raylib.Rectangle,
+	text:     string,
+	callback: proc(),
+}
+
+CheckClick :: proc(button: Button) -> bool {
+	mouse := raylib.GetMousePosition()
+	if raylib.CheckCollisionPointRec(mouse, button.bounds) &&
+	   raylib.IsMouseButtonPressed(raylib.MouseButton.LEFT) {
+		button.callback()
+		return true
+	}
+
+	return false
+}
+
+SelectImageFile :: proc() {
+	fmt.println("hi!")
+}
+
 main :: proc() {
 
 	editorState := editor_state_init()
 	//defer delete(editorState.grid)
+
+	button := Button{raylib.Rectangle{698, 282, 96, 32}, "Load Tile", SelectImageFile}
+
+	buttons := make([dynamic]Button, 1024)
+	append(&buttons, button)
 
 	selected_color: raylib.Color = {0, 0, 0, 255}
 
@@ -72,6 +99,27 @@ main :: proc() {
 
 	for !raylib.WindowShouldClose() {
 		mouse_pos := raylib.GetMousePosition()
+
+		for button, _ in buttons {
+			CheckClick(button)
+		}
+
+		if raylib.IsMouseButtonPressed(raylib.MouseButton.RIGHT) {
+			fmt.printfln("mx: %g, my: %g", mouse_pos.x, mouse_pos.y)
+		}
+
+		if raylib.IsMouseButtonDown(raylib.MouseButton.LEFT) {
+			if raylib.CheckCollisionPointRec(mouse_pos, grid_rect) {
+				grid_x := i32(mouse_pos.x) / CELL_SIZE
+				grid_y := i32(mouse_pos.y) / CELL_SIZE
+				editorState.grid[grid_x][grid_y].color = selected_color
+			} else if raylib.CheckCollisionPointRec(mouse_pos, palette_rect) {
+				p_x := i32(mouse_pos.x - f32(palette_begin_x)) / PALETTE_CELL
+				p_y := i32(mouse_pos.y) / PALETTE_CELL
+				color_index := p_y * PALETTE_COLS + p_x
+				selected_color = palette_colors[color_index]
+			}
+		}
 
 		raylib.BeginDrawing()
 		defer raylib.EndDrawing()
@@ -99,8 +147,6 @@ main :: proc() {
 			raylib.DrawLine(0, y_pos, GRID_WIDTH * CELL_SIZE, y_pos, raylib.WHITE)
 		}
 
-		total_palette_loops: i32 = 0
-
 		// draw palette.
 		for color, i in palette_colors {
 			row := i32(i) / PALETTE_COLS
@@ -115,17 +161,17 @@ main :: proc() {
 			)
 		}
 
-		if raylib.IsMouseButtonDown(raylib.MouseButton.LEFT) {
-			if raylib.CheckCollisionPointRec(mouse_pos, grid_rect) {
-				grid_x := i32(mouse_pos.x) / CELL_SIZE
-				grid_y := i32(mouse_pos.y) / CELL_SIZE
-				editorState.grid[grid_x][grid_y].color = selected_color
-			} else if raylib.CheckCollisionPointRec(mouse_pos, palette_rect) {
-				p_x := i32(mouse_pos.x - f32(palette_begin_x)) / PALETTE_CELL
-				p_y := i32(mouse_pos.y) / PALETTE_CELL
-				color_index := p_y * PALETTE_COLS + p_x
-				selected_color = palette_colors[color_index]
-			}
+		for button in buttons {
+			raylib.DrawRectangleRec(button.bounds, raylib.WHITE)
+
+			fontSize: i32 = 20
+			ctext: cstring = strings.clone_to_cstring(button.text, context.temp_allocator)
+			textWidth: i32 = raylib.MeasureText(ctext, fontSize)
+
+			centerX := i32(button.bounds.x) + (i32(button.bounds.width) - textWidth) / 2
+			centerY := i32(button.bounds.y) + (i32(button.bounds.height) - fontSize) / 2
+
+			raylib.DrawText(ctext, centerX, centerY, fontSize, raylib.BLACK)
 		}
 	}
 }
