@@ -10,13 +10,84 @@
 !_TAG_FIELD_DESCRIPTION	typeref	/Type and name of a variable or typedef/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_KIND_DESCRIPTION!JSON	a,array	/arrays/
+!_TAG_KIND_DESCRIPTION!JSON	b,boolean	/booleans/
+!_TAG_KIND_DESCRIPTION!JSON	n,number	/numbers/
+!_TAG_KIND_DESCRIPTION!JSON	o,object	/objects/
+!_TAG_KIND_DESCRIPTION!JSON	s,string	/strings/
+!_TAG_KIND_DESCRIPTION!JSON	z,null	/nulls/
 !_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_OUTPUT_VERSION	1.1	/current.age/
+!_TAG_PARSER_VERSION!JSON	0.0	/current.age/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
 !_TAG_PROC_CWD	/home/jupiter/Repositories/odin-lvleditor/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	6.2.1	/v6.2.1/
+0	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+1	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+10	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+11	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+12	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+13	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+14	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+15	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+16	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+17	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+18	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+19	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+2	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+20	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+21	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+22	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+23	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+24	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+25	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+26	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+27	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+28	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+29	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+3	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+30	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+31	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+32	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+33	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+34	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+35	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+36	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+37	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+38	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+39	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+4	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+40	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+41	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+42	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+43	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+44	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+45	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+46	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+47	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+48	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+49	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+5	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+50	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+51	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+52	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+53	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+54	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+55	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0$/;"	n	array:tiles
+6	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+7	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+8	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+9	assets/tiles/lvl1.json	/^    -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,$/;"	n	array:tiles
+brick	assets/tiles/tileset.json	/^  "brick": {$/;"	o
+height	assets/tiles/lvl1.json	/^  "height": 16,$/;"	n
+metadata	assets/tiles/tileset.json	/^    "metadata": ""$/;"	s	object:brick
+path	assets/tiles/tileset.json	/^    "path": "assets\/tiles\/brick.png",$/;"	s	object:brick
+tile_size	assets/tiles/lvl1.json	/^  "tile_size": 8,$/;"	n
+tiles	assets/tiles/lvl1.json	/^  "tiles": [$/;"	a
+type	assets/tiles/tileset.json	/^    "type": "Solid",$/;"	s	object:brick
+width	assets/tiles/lvl1.json	/^  "width": 16,$/;"	n
