@@ -11,7 +11,7 @@ PALETTE_COLS: i32 : 4
 PALETTE_CELL: i32 : 32
 
 EditorState :: struct {
-	grid:         [GRID_WIDTH * GRID_HEIGHT]i32,
+	level:        Level,
 	tile_lib:     TileLib,
 	tiles_loaded: bool,
 }
@@ -19,8 +19,15 @@ EditorState :: struct {
 editor_state_init :: proc() -> EditorState {
 	editorState: EditorState
 
-	for &cell in editorState.grid {
-		cell = -1
+	editorState.level.tiles = make([dynamic]i32, GRID_WIDTH * GRID_HEIGHT)
+
+	editorState.level.width = GRID_WIDTH
+	editorState.level.height = GRID_HEIGHT
+
+	editorState.level.tile_size = 8 // FIXME: hardcoded
+
+	for &tile in editorState.level.tiles {
+		tile = -1
 	}
 
 	editorState.tile_lib = TileLib {
@@ -49,13 +56,16 @@ main :: proc() {
 	editorState := editor_state_init()
 	//defer delete(editorState.grid)
 
-	button := Button{raylib.Rectangle{698, 282, 96, 32}, "Load Tile", LoadTiles}
-
 	buttons := make([dynamic]Button, 32)
-	append(&buttons, button)
+	loadTilesButton := Button{raylib.Rectangle{698, 282, 96, 32}, "Load Tile", LoadTiles}
+	append(&buttons, loadTilesButton)
+	exportLevelButton := Button{raylib.Rectangle{654, 324, 138, 32}, "Export Level", ExportLevel}
+	append(&buttons, exportLevelButton)
+	loadLevelButton := Button{raylib.Rectangle{698, 366, 96, 32}, "Load Level", LoadLevel}
+	append(&buttons, loadLevelButton)
 
 	selected_color: raylib.Color = {0, 0, 0, 255}
-	selected_tile_id: i32 = 0
+	selected_tile_id: i32 = -1
 
 	raylib.InitWindow(800, 600, "Level Editor")
 	defer raylib.CloseWindow()
@@ -68,22 +78,26 @@ main :: proc() {
 			CheckClick(button, &editorState)
 		}
 
-		if raylib.IsMouseButtonPressed(raylib.MouseButton.RIGHT) {
-			fmt.printfln("mx: %g, my: %g", mouse_pos.x, mouse_pos.y)
-		}
+		//if raylib.IsMouseButtonPressed(raylib.MouseButton.RIGHT) {
+		//	fmt.printfln("mx: %g, my: %g", mouse_pos.x, mouse_pos.y)
+		//}
 
-		if raylib.IsMouseButtonDown(raylib.MouseButton.LEFT) {
-			if raylib.CheckCollisionPointRec(mouse_pos, grid_rect) {
-				grid_x := i32(mouse_pos.x) / CELL_SIZE
-				grid_y := i32(mouse_pos.y) / CELL_SIZE
-				editorState.grid[grid_y * GRID_WIDTH + grid_x] = selected_tile_id
-			} else if raylib.CheckCollisionPointRec(mouse_pos, palette_rect) {
+		if raylib.CheckCollisionPointRec(mouse_pos, grid_rect) {
+			grid_x := i32(mouse_pos.x) / CELL_SIZE
+			grid_y := i32(mouse_pos.y) / CELL_SIZE
+			if raylib.IsMouseButtonDown(raylib.MouseButton.LEFT) {
+				editorState.level.tiles[grid_y * GRID_WIDTH + grid_x] = selected_tile_id
+			} else if raylib.IsMouseButtonDown(raylib.MouseButton.RIGHT) {
+				editorState.level.tiles[grid_y * GRID_WIDTH + grid_x] = -1 // erase
+			}
+		} else if raylib.CheckCollisionPointRec(mouse_pos, palette_rect) {
+			if raylib.IsMouseButtonDown(raylib.MouseButton.LEFT) {
 				p_x := i32(mouse_pos.x - f32(palette_begin_x)) / PALETTE_CELL
 				p_y := i32(mouse_pos.y) / PALETTE_CELL
-				index := p_y * PALETTE_COLS + p_x
-				selected_tile_id = index
+				selected_tile_id = p_y * PALETTE_COLS + p_x
 			}
 		}
+
 
 		raylib.BeginDrawing()
 		defer raylib.EndDrawing()
@@ -91,7 +105,7 @@ main :: proc() {
 
 		for x in 0 ..< GRID_WIDTH {
 			for y in 0 ..< GRID_HEIGHT {
-				cell := editorState.grid[y * GRID_WIDTH + x]
+				cell := editorState.level.tiles[y * GRID_WIDTH + x]
 
 				if editorState.tiles_loaded &&
 				   cell >= 0 &&

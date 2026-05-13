@@ -34,7 +34,7 @@ Level :: struct {
 	width:     i32,
 	height:    i32,
 	tile_size: i32,
-	tiles:     []i32, // id
+	tiles:     [dynamic]i32, // id
 }
 
 str2ttype :: proc(input: string) -> TileType {
@@ -99,4 +99,46 @@ LoadTiles :: proc(editor_state: ^EditorState) {
 
 	editor_state.tile_lib = tile_lib
 	editor_state.tiles_loaded = true
+}
+
+ExportLevel :: proc(editor_state: ^EditorState) {
+	if !editor_state.tiles_loaded do return
+
+	level_data, json_err := json.marshal(editor_state.level, {pretty = true})
+	if json_err != nil {
+		fmt.eprintfln("Error marshalling level data: ", json_err)
+		return
+	}
+	defer delete(level_data)
+
+	os_err := os.write_entire_file("level.json", level_data)
+	if os_err != nil {
+		fmt.eprintfln("Error writing file: ", os_err)
+	}
+
+	fmt.println("JSON bytes saved succesfully.")
+}
+
+LoadLevel :: proc(editor_state: ^EditorState) {
+	if !editor_state.tiles_loaded do return
+
+	file, err := os.read_entire_file_from_path("level.json", context.temp_allocator)
+	if err != nil {
+		fmt.eprintln("Level loading failed!")
+		return
+	}
+
+	temp_level: Level
+	unmarshal_err := json.unmarshal(file, &temp_level)
+	if unmarshal_err != nil {
+		fmt.eprintln("Error unmarshalling:", unmarshal_err)
+		return
+	}
+
+	delete(editor_state.level.tiles)
+
+	editor_state.level = temp_level
+
+	editor_state.level.tiles = make([dynamic]i32, len(temp_level.tiles))
+	copy(editor_state.level.tiles[:], temp_level.tiles[:])
 }
